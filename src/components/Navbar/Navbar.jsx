@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { AiFillMail, AiFillNotification, AiOutlineSearch } from 'react-icons/ai';
+import { AiFillMail, AiFillNotification, AiOutlineAccountBook, AiOutlineLogout, AiOutlineProfile, AiOutlineSearch, AiOutlineSetting, AiOutlineUserAdd } from 'react-icons/ai';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { styled, alpha } from '@mui/material/styles';
-import { AppBar, Badge, InputBase, Toolbar, Typography, IconButton } from '@mui/material';
+import { AppBar, Badge, InputBase, Toolbar, Typography, IconButton, Menu, Avatar, MenuItem, Divider, ListItemIcon, Tooltip } from '@mui/material';
 import { Box } from '@mui/system';
 import { SidebarDrawer } from '../Sidebar/Sidebar';
 
@@ -58,9 +58,20 @@ const IconsProvider = styled('div')({
     gap: 20,
 });
 
-function Navbar({mode, setMode}) {
+function Navbar({ mode, setMode }) {
 
-    const [open, setOpen] = useState(false);
+    const [drawerOpen, setDrawerOpen] = useState(false);
+
+    const [anchorEl, setAnchorEl] = useState(null);
+    const profileMenu = Boolean(anchorEl);
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget)
+    }
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    }
 
     return (
         <>
@@ -71,7 +82,7 @@ function Navbar({mode, setMode}) {
                     </Typography>
                     <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
                         <IconButton
-                            onClick={() => setOpen(true)}
+                            onClick={() => setDrawerOpen(true)}
                         >
                             <AiOutlineMenu color='white' fontSize='1.5rem' cursor='pointer' />
                         </IconButton>
@@ -92,10 +103,62 @@ function Navbar({mode, setMode}) {
                         <Badge badgeContent={15} color='error'>
                             <AiFillNotification cursor='pointer' fontSize="1.2rem" />
                         </Badge>
+                        <Tooltip title="Account Setting">
+                            <IconButton
+                                onClick={handleClick}
+                                size="small"
+                                aria-controls={profileMenu ? 'account-menu' : undefined}
+                                aria-haspopup="true"
+                                aria-expanded={profileMenu ? 'true' : undefined}
+                            >
+                                <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+                            </IconButton>
+                        </Tooltip>
                     </IconsProvider>
                 </StyledToolbar>
             </AppBar>
-            <SidebarDrawer open={open} setOpen={setOpen} mode={mode} setMode={setMode} />
+            <Menu
+                anchorEl={anchorEl}
+                open={profileMenu}
+                id="account-menu"
+                onClose={handleClose}
+                onClick={handleClose}
+                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+            >
+                <MenuItem>
+                    <ListItemIcon>
+                        <AiOutlineProfile />
+                    </ListItemIcon>
+                    Profile
+                </MenuItem>
+                <MenuItem>
+                    <ListItemIcon>
+                        <AiOutlineAccountBook />
+                    </ListItemIcon>
+                    My Account
+                </MenuItem>
+                <Divider />
+                <MenuItem>
+                    <ListItemIcon>
+                        <AiOutlineUserAdd />
+                    </ListItemIcon>
+                    Add Another Account
+                </MenuItem>
+                <MenuItem>
+                    <ListItemIcon>
+                        <AiOutlineSetting />
+                    </ListItemIcon>
+                    Settings
+                </MenuItem>
+                <MenuItem>
+                    <ListItemIcon>
+                        <AiOutlineLogout />
+                    </ListItemIcon>
+                    Logout
+                </MenuItem>
+            </Menu>
+            <SidebarDrawer open={drawerOpen} setOpen={setDrawerOpen} mode={mode} setMode={setMode} />
         </>
     )
 }
