@@ -3,7 +3,7 @@ import React from 'react'
 
 function Rightbar() {
     return (
-        <Box flex={2} p={2} sx={{ display: { xs: 'none', sm: 'block' } }}>
+        <Box flex={2} p={2} sx={{ display: { xs: 'none', md: 'block' } }}>
             <Box position='fixed' width={300}>
                 <Box sx={{ margin: '40px 0' }}>
                     <Typography variant='h6' fontWeight={100}>

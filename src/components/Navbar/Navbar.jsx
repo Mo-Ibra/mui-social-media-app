@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AiFillMail, AiFillNotification, AiOutlineSearch } from 'react-icons/ai';
-import { FcComments } from 'react-icons/fc';
+import { AiOutlineMenu } from 'react-icons/ai';
 import { styled, alpha } from '@mui/material/styles';
-import { AppBar, Badge, InputBase, Toolbar, Typography } from '@mui/material';
+import { AppBar, Badge, InputBase, Toolbar, Typography, IconButton } from '@mui/material';
 import { Box } from '@mui/system';
+import { SidebarDrawer } from '../Sidebar/Sidebar';
 
 const StyledToolbar = styled(Toolbar)({
     display: 'flex',
@@ -57,36 +58,45 @@ const IconsProvider = styled('div')({
     gap: 20,
 });
 
-function Navbar() {
+function Navbar({mode, setMode}) {
+
+    const [open, setOpen] = useState(false);
+
     return (
-        <AppBar position='sticky'>
-            <StyledToolbar>
-                <Typography variant='h6' sx={{ display: { xs: 'none', sm: 'block' } }}>
-                    Socail App
-                </Typography>
-                <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
-                    <FcComments fontSize='1.5rem' cursor='pointer' />
-                </Box>
-                <Search>
-                    <SearchIconWrapper>
-                        <AiOutlineSearch />
-                    </SearchIconWrapper>
-                    <StyledInputBase
-                        placeholder='Search..'
-                        inputProps={{ 'aria-label': 'search' }}
-                    />
-                </Search>
-                {/* Icons */}
-                <IconsProvider>
-                    <Badge badgeContent={2} color='error'>
-                        <AiFillMail cursor='pointer' fontSize='1.2rem' />
-                    </Badge>
-                    <Badge badgeContent={15} color='error'>
-                        <AiFillNotification cursor='pointer' fontSize="1.2rem" />
-                    </Badge>
-                </IconsProvider>
-            </StyledToolbar>
-        </AppBar>
+        <>
+            <AppBar position='sticky'>
+                <StyledToolbar>
+                    <Typography variant='h6' sx={{ display: { xs: 'none', sm: 'block' } }}>
+                        Socail App
+                    </Typography>
+                    <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
+                        <IconButton
+                            onClick={() => setOpen(true)}
+                        >
+                            <AiOutlineMenu color='white' fontSize='1.5rem' cursor='pointer' />
+                        </IconButton>
+                    </Box>
+                    <Search>
+                        <SearchIconWrapper>
+                            <AiOutlineSearch />
+                        </SearchIconWrapper>
+                        <StyledInputBase
+                            placeholder='Search..'
+                            inputProps={{ 'aria-label': 'search' }}
+                        />
+                    </Search>
+                    <IconsProvider>
+                        <Badge badgeContent={2} color='error'>
+                            <AiFillMail cursor='pointer' fontSize='1.2rem' />
+                        </Badge>
+                        <Badge badgeContent={15} color='error'>
+                            <AiFillNotification cursor='pointer' fontSize="1.2rem" />
+                        </Badge>
+                    </IconsProvider>
+                </StyledToolbar>
+            </AppBar>
+            <SidebarDrawer open={open} setOpen={setOpen} mode={mode} setMode={setMode} />
+        </>
     )
 }
 

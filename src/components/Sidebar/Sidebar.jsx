@@ -1,8 +1,9 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Switch, FormControlLabel } from '@mui/material';
+import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Switch, FormControlLabel, Drawer, Typography } from '@mui/material';
 import { FcHome, FcServices, FcDiploma2, FcShop, FcPortraitMode, FcVoicePresentation, FcReadingEbook } from 'react-icons/fc';
 
+// Style Switch Checkbox
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     width: 62,
     height: 34,
@@ -50,76 +51,98 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     },
 }));
 
-function Sidebar() {
+// List of Sidebar Items
+const SidebarList = ({ mode, setMode }) => (
+    <List>
+        <ListItem disablePadding>
+            <ListItemButton component="a" href="#home">
+                <ListItemIcon>
+                    <FcHome />
+                </ListItemIcon>
+                <ListItemText primary="Home" />
+            </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+            <ListItemButton component="a" href="#pages">
+                <ListItemIcon>
+                    <FcDiploma2 />
+                </ListItemIcon>
+                <ListItemText primary="Pages" />
+            </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+            <ListItemButton component="a" href="#groups">
+                <ListItemIcon>
+                    <FcReadingEbook />
+                </ListItemIcon>
+                <ListItemText primary="Groups" />
+            </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+            <ListItemButton component="a" href="#marketplace">
+                <ListItemIcon>
+                    <FcShop />
+                </ListItemIcon>
+                <ListItemText primary="Marketplace" />
+            </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+            <ListItemButton component="a" href="#friends">
+                <ListItemIcon>
+                    <FcPortraitMode />
+                </ListItemIcon>
+                <ListItemText primary="Friends" />
+            </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+            <ListItemButton component="a" href="#settings">
+                <ListItemIcon>
+                    <FcServices />
+                </ListItemIcon>
+                <ListItemText primary="Settings" />
+            </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+            <ListItemButton component="a" href="#profile">
+                <ListItemIcon>
+                    <FcVoicePresentation />
+                </ListItemIcon>
+                <ListItemText primary="Profile" />
+            </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+            <ListItemButton component="a">
+                <FormControlLabel
+                    control={<MaterialUISwitch onChange={e => setMode(mode === "light" ? "dark" : "light")} sx={{ m: 1 }} />}
+                    label="Switch Mode"
+                />
+            </ListItemButton>
+        </ListItem>
+    </List>
+)
+
+// Sidebar Drawer For Mobile
+export const SidebarDrawer = ({open, setOpen, mode, setMode}) => (
+    <Drawer
+        open={open}
+        onClose={() => setOpen(false)}
+        anchor='left'
+    >
+        <Box p={2}>
+            <Typography variant='h6' sx={{ margin: '20px 0' }} fontWeight={200} textAlign='center'>
+                Social App
+            </Typography>
+            <SidebarList mode={mode} setMode={setMode} />
+        </Box>
+    </Drawer>
+)
+
+// Sidebar
+function Sidebar({ mode, setMode }) {
     return (
-        <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" }}}>
+        <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
             <Box position='fixed'>
-                <List>
-                    <ListItem disablePadding>
-                        <ListItemButton component="a" href="#home">
-                            <ListItemIcon>
-                                <FcHome />
-                            </ListItemIcon>
-                            <ListItemText primary="Home" />
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem disablePadding>
-                        <ListItemButton component="a" href="#pages">
-                            <ListItemIcon>
-                                <FcDiploma2 />
-                            </ListItemIcon>
-                            <ListItemText primary="Pages" />
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem disablePadding>
-                        <ListItemButton component="a" href="#groups">
-                            <ListItemIcon>
-                                <FcReadingEbook />
-                            </ListItemIcon>
-                            <ListItemText primary="Groups" />
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem disablePadding>
-                        <ListItemButton component="a" href="#marketplace">
-                            <ListItemIcon>
-                                <FcShop />
-                            </ListItemIcon>
-                            <ListItemText primary="Marketplace" />
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem disablePadding>
-                        <ListItemButton component="a" href="#friends">
-                            <ListItemIcon>
-                                <FcPortraitMode />
-                            </ListItemIcon>
-                            <ListItemText primary="Friends" />
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem disablePadding>
-                        <ListItemButton component="a" href="#settings">
-                            <ListItemIcon>
-                                <FcServices />
-                            </ListItemIcon>
-                            <ListItemText primary="Settings" />
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem disablePadding>
-                        <ListItemButton component="a" href="#profile">
-                            <ListItemIcon>
-                                <FcVoicePresentation />
-                            </ListItemIcon>
-                            <ListItemText primary="Profile" />
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem disablePadding>
-                        <ListItemButton component="a">
-                            <FormControlLabel
-                                control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
-                                label="Switch Mode"
-                            />
-                        </ListItemButton>
-                    </ListItem>
-                </List>
+                <SidebarList mode={mode} setMode={setMode} />
             </Box>
         </Box>
     )
