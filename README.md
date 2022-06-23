@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# Social Media App With React JS & MUI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Social Media App with React JS](https://raw.githubusercontent.com/Dev-Maradona/mui-social-media-app/master/preview/1.png)
 
-## Available Scripts
+##
 
-In the project directory, you can run:
+![Social Media App with React JS](https://raw.githubusercontent.com/Dev-Maradona/mui-social-media-app/master/preview/2.png)
 
-### `npm start`
+##
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![Social Media App with React JS](https://raw.githubusercontent.com/Dev-Maradona/mui-social-media-app/master/preview/3.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+##
 
-### `npm test`
+![Social Media App with React JS](https://raw.githubusercontent.com/Dev-Maradona/mui-social-media-app/master/preview/4.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+free social media app template built on top of **Material UI** and fully coded in **React and Next Js**. Simple light is designed to provide all the basic components a developer need to create a social media app for SaaS products, online services, and more. 
+Use it for whatever you want, and be sure to reach us out on Twitter if you build anything cool/useful with it.
+Created and maintained with ❤️ by Dev-Maradona
 
-### `npm run build`
+## Live demo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Check the live demo here 👉️ [mui-social-media-app.vercel.app/](mui-social-media-app.vercel.app//)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Table of contents
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* [Usage](#usage)
+  * [Project setup](#project-setup)
+  * [Compiles and hot-reloads for development](#compiles-and-hot-reloads-for-development)
+  * [Compiles and minifies for production](#compiles-and-minifies-for-production)
+* [Pro Version](#pro-version)
+* [About Us](#about-us)
+* [Stay in the loop](#stay-in-the-loop)
+* [Support](#support)
 
-### `npm run eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This project was bootstrapped with [Vite](https://vitejs.dev/).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Project setup
+```
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Compiles and hot-reloads for development
+```
+npm run dev
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Compiles and minifies for production
+```
+npm run build
+```
 
-## Learn More
+## Stay in the loop
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+If you would like to know when we release new resources, you can follow us on [Twitter](https://twitter.com/Maradon16007828)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Buy a coffe
+Just buy for me a coffee for support me [Buy me a Coffee](https://www.buymeacoffee.com/DevMaradona).
